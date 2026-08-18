@@ -1,34 +1,34 @@
 name: Daily AI Cybersecurity Newspaper
-
+ 
 on:
   schedule:
-    # 07:00 UTC every day — adjust to whatever "morning" means for your timezone
-    - cron: "0 7 * * *"
+    # 00:30 UTC = 6:00 AM IST (Jaipur) — adjust if you ever change time zones
+    - cron: "30 0 * * *"
   workflow_dispatch: {}   # lets you trigger it manually from the Actions tab
-
+ 
 permissions:
   contents: write
-
+ 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
-
+ 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
+ 
       - name: Install dependencies
         run: pip install -r requirements.txt
-
+ 
       - name: Run the bot
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python main.py
-
+ 
       - name: Commit today's edition
         run: |
           git config user.name "ai-cyber-newspaper-bot"
@@ -36,3 +36,4 @@ jobs:
           git add output/
           git diff --staged --quiet || git commit -m "Daily edition: $(date -u +'%Y-%m-%d')"
           git push
+ 
