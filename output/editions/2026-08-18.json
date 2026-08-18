@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Philips and GE investigating Clop ransomware data theft claims",
+    "link": "https://www.bleepingcomputer.com/news/security/philips-and-ge-investigating-clop-ransomware-data-theft-claims/",
+    "summary": "Tech giants General Electric (GE) and Philips have also confirmed they're investigating claims that the Clop ransomware gang breached their systems and stole data. [...]",
+    "source": "BleepingComputer",
+    "source_weight": 1.2,
+    "category": "news",
+    "published": "2026-08-17T05:55:02+00:00",
+    "score": 8.37,
+    "keyword_score": 6,
+    "blurb": "Tech giants General Electric (GE) and Philips have also confirmed they're investigating claims that the Clop ransomware gang breached their systems and stole data. [...]"
+  },
+  {
+    "title": "CISA: Windows Task Host flaw now exploited by ransomware gangs",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-windows-task-host-flaw-now-exploited-by-ransomware-gangs/",
+    "summary": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) has confirmed that ransomware gangs are also exploiting a high-severity Windows Task Host vulnerability that was flagged as actively exploited in April. [...]",
+    "source": "BleepingComputer",
+    "source_weight": 1.2,
+    "category": "news",
+    "published": "2026-08-18T05:02:16+00:00",
+    "score": 6.81,
+    "keyword_score": 3,
+    "blurb": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) has confirmed that ransomware gangs are also exploiting a high-severity Windows Task Host vulnerability that was flagged as actively exploited in April."
+  },
+  {
+    "title": "Blocking prompt injection deterministically costs 40% false positives",
+    "link": "https://github.com/vineetpant/customhouse/blob/main/docs/false-positives.md",
+    "summary": "",
+    "source": "Hacker News",
+    "source_weight": 0.9,
+    "category": "news",
+    "published": "2026-08-18T06:50:55+00:00",
+    "score": 6.62,
+    "keyword_score": 3,
+    "blurb": "Blocking prompt injection deterministically costs 40% false positives"
+  }
+]
