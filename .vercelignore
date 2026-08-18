@@ -1,0 +1,12 @@
+# Vercel should only ever serve the pre-built output/ folder.
+# These Python files are what GENERATE that folder (run locally or
+# by the GitHub Actions workflow) — Vercel doesn't need to see them,
+# and without this file it mistakes main.py for a serverless function.
+ 
+*.py
+__pycache__/
+templates/
+.github/
+requirements.txt
+README.md
+ 
