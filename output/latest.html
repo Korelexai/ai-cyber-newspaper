@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Threat Briefing — 2026-08-18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============ DESIGN TOKENS ============
+     Edit these to re-theme the whole page.
+     brand = your product's single accent color.
+     sev-* = severity tiers, mapped by rank (1st story = critical, etc.)
+  ============================================ */
+  :root {
+    --bg-base: #0a0c11;
+    --bg-panel: #12151c;
+    --bg-panel-hover: #171b24;
+    --hairline: #242938;
+    --text-primary: #e9ecf3;
+    --text-muted: #8890a3;
+    --text-faint: #565d70;
+    --brand: #5e7cff;
+    --sev-critical: #ff4d6a;
+    --sev-high: #ffb343;
+    --sev-notable: #4fc3e0;
+    --sev-monitored: #6b7280;
+    --mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --display: 'Space Grotesk', var(--sans);
+    --radius: 10px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--sans);
+    margin: 0;
+    padding: 56px 20px 100px;
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead { margin-bottom: 40px; }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.14em;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* Signature mark — swap this glyph/shape for your real logo */
+  .brand-mark {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, var(--brand), var(--sev-notable));
+    display: inline-block;
+  }
+
+  .live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--sev-notable);
+    box-shadow: 0 0 0 0 rgba(79, 195, 224, 0.6);
+    animation: pulse 2.4s ease-out infinite;
+  }
+
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(79, 195, 224, 0.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(79, 195, 224, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(79, 195, 224, 0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-dot { animation: none; }
+  }
+
+  .masthead h1 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 2.65rem);
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+  }
+
+  .masthead-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 0 24px;
+    max-width: 46ch;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    padding: 12px 0;
+  }
+
+  .meta-row strong {
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  /* ---------- Story cards ---------- */
+  .stories { display: flex; flex-direction: column; gap: 14px; }
+
+  .story {
+    background: var(--bg-panel);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--sev-color, var(--sev-monitored));
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    transition: background 0.15s ease;
+  }
+
+  .story:hover { background: var(--bg-panel-hover); }
+
+  .story-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .rank-tier {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .rank-num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-faint);
+  }
+
+  .tier-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sev-color, var(--sev-monitored));
+  }
+
+  .category-chip {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+
+  /* Signal bars — the signature element. Bar count = rank priority,
+     not a literal score readout, so it reads clearly at a glance. */
+  .signal-bars { display: flex; align-items: flex-end; gap: 2px; height: 14px; }
+  .signal-bars span {
+    width: 3px;
+    background: var(--hairline);
+    border-radius: 1px;
+  }
+  .signal-bars span:nth-child(1) { height: 30%; }
+  .signal-bars span:nth-child(2) { height: 50%; }
+  .signal-bars span:nth-child(3) { height: 70%; }
+  .signal-bars span:nth-child(4) { height: 85%; }
+  .signal-bars span:nth-child(5) { height: 100%; }
+  .signal-bars span.filled { background: var(--sev-color, var(--sev-monitored)); }
+
+  .story h2 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.28rem;
+    line-height: 1.32;
+    margin: 0 0 10px;
+  }
+
+  .story h2 a { text-decoration: none; }
+  .story h2 a:hover { color: var(--brand); }
+
+  .byline {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--text-faint);
+    margin-bottom: 12px;
+  }
+
+  .byline .dot { margin: 0 6px; color: var(--hairline); }
+
+  .blurb {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    color: var(--brand);
+    text-decoration: none;
+  }
+  .read-more:hover { text-decoration: underline; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    text-align: center;
+    margin-top: 48px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-faint);
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 36px 14px 80px; }
+    .story { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="masthead">
+    <div class="brand-row">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>SIGNAL</span>
+        <!-- ^ Replace "SIGNAL" with your product/company name -->
+      </div>
+      <div class="live-indicator">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        Monitoring active
+      </div>
+    </div>
+
+    <h1>AI Threat Briefing</h1>
+    <p class="masthead-sub">
+      The top 3 verified AI security incidents from the last
+      2 days — ranked and summarized automatically.
+    </p>
+
+    <div class="meta-row">
+      <span>EDITION <strong>2026-08-18</strong></span>
+      <span>WINDOW <strong>2D</strong></span>
+      <span>GENERATED <strong>2026-08-18 10:57 UTC</strong></span>
+    </div>
+  </header>
+
+  <div class="stories">
+    
+    
+      
+      <article class="story" style="--sev-color: var(--sev-critical);">
+        <div class="story-top">
+          <div class="rank-tier">
+            <span class="rank-num">01</span>
+            <span class="tier-label">Critical</span>
+            <span class="category-chip">news</span>
+          </div>
+          <div class="signal-bars" aria-hidden="true">
+            
+              <span class="filled"></span>
+            
+              <span class="filled"></span>
+            
+              <span class="filled"></span>
+            
+              <span class="filled"></span>
+            
+              <span class="filled"></span>
+            
+          </div>
+        </div>
+
+        <h2><a href="https://www.bleepingcomputer.com/news/security/philips-and-ge-investigating-clop-ransomware-data-theft-claims/" target="_blank" rel="noopener">Philips and GE investigating Clop ransomware data theft claims</a></h2>
+
+        <div class="byline">
+          BleepingComputer<span class="dot">&middot;</span>Aug 17, 05:55 UTC
+        </div>
+
+        <p class="blurb">Tech giants General Electric (GE) and Philips have also confirmed they&#39;re investigating claims that the Clop ransomware gang breached their systems and stole data. [...]</p>
+
+        <a class="read-more" href="https://www.bleepingcomputer.com/news/security/philips-and-ge-investigating-clop-ransomware-data-theft-claims/" target="_blank" rel="noopener">Read full report →</a>
+      </article>
+    
+      
+      <article class="story" style="--sev-color: var(--sev-high);">
+        <div class="story-top">
+          <div class="rank-tier">
+            <span class="rank-num">02</span>
+            <span class="tier-label">High</span>
+            <span class="category-chip">news</span>
+          </div>
+          <div class="signal-bars" aria-hidden="true">
+            
+              <span class="filled"></span>
+            
+              <span class="filled"></span>
+            
+              <span class="filled"></span>
+            
+              <span class="filled"></span>
+            
+              <span class=""></span>
+            
+          </div>
+        </div>
+
+        <h2><a href="https://www.bleepingcomputer.com/news/security/cisa-windows-task-host-flaw-now-exploited-by-ransomware-gangs/" target="_blank" rel="noopener">CISA: Windows Task Host flaw now exploited by ransomware gangs</a></h2>
+
+        <div class="byline">
+          BleepingComputer<span class="dot">&middot;</span>Aug 18, 05:02 UTC
+        </div>
+
+        <p class="blurb">The U.S. Cybersecurity and Infrastructure Security Agency (CISA) has confirmed that ransomware gangs are also exploiting a high-severity Windows Task Host vulnerability that was flagged as actively exploited in April.</p>
+
+        <a class="read-more" href="https://www.bleepingcomputer.com/news/security/cisa-windows-task-host-flaw-now-exploited-by-ransomware-gangs/" target="_blank" rel="noopener">Read full report →</a>
+      </article>
+    
+      
+      <article class="story" style="--sev-color: var(--sev-notable);">
+        <div class="story-top">
+          <div class="rank-tier">
+            <span class="rank-num">03</span>
+            <span class="tier-label">Notable</span>
+            <span class="category-chip">news</span>
+          </div>
+          <div class="signal-bars" aria-hidden="true">
+            
+              <span class="filled"></span>
+            
+              <span class="filled"></span>
+            
+              <span class="filled"></span>
+            
+              <span class=""></span>
+            
+              <span class=""></span>
+            
+          </div>
+        </div>
+
+        <h2><a href="https://github.com/vineetpant/customhouse/blob/main/docs/false-positives.md" target="_blank" rel="noopener">Blocking prompt injection deterministically costs 40% false positives</a></h2>
+
+        <div class="byline">
+          Hacker News<span class="dot">&middot;</span>Aug 18, 06:50 UTC
+        </div>
+
+        <p class="blurb">Blocking prompt injection deterministically costs 40% false positives</p>
+
+        <a class="read-more" href="https://github.com/vineetpant/customhouse/blob/main/docs/false-positives.md" target="_blank" rel="noopener">Read full report →</a>
+      </article>
+    
+  </div>
+
+  <footer>
+    Generated automatically &middot; 2026-08-18 10:57 UTC
+  </footer>
+
+</div>
+</body>
+</html>
+
