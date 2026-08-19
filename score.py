@@ -17,15 +17,37 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import List, Dict
 
-from sources import KEYWORDS, MIN_SCORE_THRESHOLD, LOOKBACK_DAYS, PREFER_CATEGORY_ORDER, TOP_N
+from sources import (
+    KEYWORDS, AI_CONTEXT_TERMS, MIN_SCORE_THRESHOLD, LOOKBACK_DAYS,
+    PREFER_CATEGORY_ORDER, TOP_N,
+)
 
 
 def _text_of(article: Dict) -> str:
     return f"{article['title']} {article['summary']}".lower()
 
 
-def keyword_score(article: Dict) -> int:
+def mentions_ai(text: str) -> bool:
+    """
+    True if the article is actually ABOUT AI (not just generic
+    cybersecurity). Two ways to qualify:
+      1. It contains an explicit AI-context term ("llm", "chatbot", "ai
+         agent", "mcp", ...), or
+      2. It contains one of the KEYWORDS["high"] terms, which are
+         inherently AI-specific (e.g. "prompt injection" is AI-specific
+         even though the word "ai" never appears literally).
+    """
+    if any(t in text for t in AI_CONTEXT_TERMS):
+        return True
+    if any(kw in text for kw in KEYWORDS["high"]):
+        return True
+    return False
+
+
+def keyword_score(article: Dict) -> tuple[int, bool]:
     text = _text_of(article)
+    is_ai = mentions_ai(text)
+
     score = 0
     for kw in KEYWORDS["high"]:
         if kw in text:
@@ -33,14 +55,16 @@ def keyword_score(article: Dict) -> int:
     for kw in KEYWORDS["medium"]:
         if kw in text:
             score += 2
-    # "context" words only count if the text also mentions AI/LLM/model,
-    # otherwise "vulnerability" alone would match every generic CVE post.
-    mentions_ai = any(t in text for t in ["ai ", " ai", "llm", "model", "chatbot", "genai", "gpt", "claude", "gemini", "copilot"])
-    if mentions_ai:
+    # "context" words (breach, exploit, ransomware, etc.) are generic
+    # cybersecurity vocabulary. They ONLY count if the article is already
+    # established as AI-related — otherwise a plain ransomware/bank-breach
+    # story would out-score genuine AI security news just for containing
+    # words like "breached" or "compromised".
+    if is_ai:
         for kw in KEYWORDS["context"]:
             if kw in text:
                 score += 1
-    return score
+    return score, is_ai
 
 
 def recency_score(article: Dict, now: datetime) -> float:
@@ -62,7 +86,9 @@ def score_and_filter(articles: List[Dict]) -> List[Dict]:
         if not is_within_lookback(art, now):
             continue
 
-        kw_score = keyword_score(art)
+        kw_score, is_ai = keyword_score(art)
+        if not is_ai:
+            continue  # hard gate: must actually be about AI, not just cybersecurity
         if kw_score < MIN_SCORE_THRESHOLD:
             continue  # out of scope (not AI+cybersecurity enough)
 

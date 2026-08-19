@@ -12,6 +12,8 @@ Pipeline:
                              ranked by score
     top N                -> take the top 3 (sources.TOP_N)
     summarize_articles() -> add a short "why this matters" blurb
+    tag_articles()       -> add area_tag (Prompt Security, MCP Security, ...)
+                             and industry_tag (BFSI, EdTech, ...) chips
     generate_newspaper() -> write output/latest.html (+ dated archive)
 """
 
@@ -22,6 +24,7 @@ import sys
 from fetch import fetch_all
 from score import score_and_filter, pick_top_stories
 from summarize import summarize_articles
+from tags import tag_articles
 from generate import generate_newspaper
 from sources import TOP_N
 
@@ -43,6 +46,7 @@ def run() -> None:
     top_stories = pick_top_stories(ranked, TOP_N)
     print(f"[3/4] Summarizing top {len(top_stories)} stories...")
     top_stories = summarize_articles(top_stories)
+    top_stories = tag_articles(top_stories)
 
     print("[4/4] Generating newspaper...")
     path = generate_newspaper(top_stories)

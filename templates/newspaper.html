@@ -200,6 +200,39 @@
     padding: 2px 7px;
   }
 
+  /* ---------- Area / industry tag chips ----------
+     Compact pills so the AI-security-area and industry labels read at a
+     glance instead of adding another line of prose. */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    border: 1px solid var(--hairline);
+    white-space: nowrap;
+  }
+
+  .tag-area {
+    color: var(--brand);
+    border-color: rgba(94, 124, 255, 0.35);
+    background: rgba(94, 124, 255, 0.1);
+  }
+
+  .tag-industry {
+    color: var(--sev-notable);
+    border-color: rgba(79, 195, 224, 0.35);
+    background: rgba(79, 195, 224, 0.1);
+  }
+
   /* Signal bars — the signature element. Bar count = rank priority,
      not a literal score readout, so it reads clearly at a glance. */
   .signal-bars { display: flex; align-items: flex-end; gap: 2px; height: 14px; }
@@ -383,6 +416,11 @@
               <span class="{{ 'filled' if i <= tier.bars else '' }}"></span>
             {% endfor %}
           </div>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag tag-area">{{ story.area_tag | default('AI Security') }}</span>
+          <span class="tag tag-industry">{{ story.industry_tag | default('Cross-Industry') }}</span>
         </div>
 
         <h2><a href="{{ story.link }}" target="_blank" rel="noopener">{{ story.title }}</a></h2>

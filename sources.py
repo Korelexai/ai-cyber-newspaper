@@ -49,32 +49,50 @@ HN_SEARCH_QUERIES = [
 HN_ALGOLIA_URL = "https://hn.algolia.com/api/v1/search_by_date"
 HN_CATEGORY = "news"
 
+# --- AI context terms ---------------------------------------------------
+# Used as a HARD GATE: an article must reference AI/LLM/agents somewhere
+# (title or summary) to be in scope at all. This is what stops generic
+# cybersecurity stories (a bank breach, a ransomware gang, a random CVE)
+# from being mistaken for "AI security" news just because they share
+# words like "breach" or "exploit" with our keyword list.
+AI_CONTEXT_TERMS = [
+    "ai ", " ai", "a.i.", "artificial intelligence", "machine learning",
+    "ml model", "llm", "large language model", "genai", "generative ai",
+    "chatbot", "gpt", "chatgpt", "claude", "gemini", "copilot", "openai",
+    "anthropic", "agentic", "ai agent", "neural network", "foundation model",
+    "deep learning", "mcp", "model context protocol", "vector database",
+]
+
 # --- Keyword filter (must match at least one to be "in scope") --------
 KEYWORDS = {
+    # Inherently AI-specific terms — these establish AI context on their
+    # own, no separate "mentions AI" check needed.
     "high": [
         "prompt injection", "jailbreak", "model poisoning", "data poisoning",
         "llm attack", "llm vulnerability", "ai supply chain",
         "adversarial prompt", "model extraction", "model theft",
         "training data leak", "ai worm", "agentic ai attack",
-        "mcp vulnerability", "mcp exploit",
-        # breaking-incident specific
-        "ai company hacked", "ai breach", "ai data breach",
-        "breached", "hacked", "exploited in the wild",
-        "ransomware", "threat actors exploit", "data stolen",
-        "compromised", "zero-day exploited",
+        "mcp vulnerability", "mcp exploit", "ai jailbreak", "model backdoor",
+        "rag poisoning", "vector database leak", "adversarial attack",
     ],
     "medium": [
         "ai vulnerability", "ai security", "llm security", "genai security",
-        "ai data leak", "chatbot exploit", "ai supply-chain",
-        "adversarial attack", "model backdoor", "ai red team",
-        "llm jailbreak", "rag poisoning", "vector database leak",
-        "openai security", "anthropic security", "claude security",
-        "gemini security", "copilot security", "ai platform vulnerability",
-        "incident disclosed", "security advisory",
+        "ai data leak", "chatbot exploit", "ai supply-chain", "ai red team",
+        "llm jailbreak", "openai security", "anthropic security",
+        "claude security", "gemini security", "copilot security",
+        "ai platform vulnerability", "ai company hacked", "ai breach",
+        "ai data breach", "ai incident",
     ],
+    # Generic cyber/incident vocabulary. These ONLY count toward the score
+    # if the article also matches AI_CONTEXT_TERMS (see score.py) —
+    # otherwise a plain ransomware or bank-breach story would rack up
+    # points just for containing "breached" or "exploit".
     "context": [
-        "cve", "zero-day", "exploit", "vulnerability", "breach",
-        "data leak", "advisory", "patched", "threat actor", "incident",
+        "cve", "zero-day", "exploit", "vulnerability", "breach", "breached",
+        "hacked", "data leak", "advisory", "patched", "threat actor",
+        "incident", "ransomware", "compromised", "data stolen",
+        "exploited in the wild", "threat actors exploit", "zero-day exploited",
+        "incident disclosed", "security advisory",
     ],
 }
 
@@ -90,3 +108,35 @@ TOP_N = 3
 # Prefer "news" category articles over "research" ones when filling
 # the top N — research papers only fill leftover slots.
 PREFER_CATEGORY_ORDER = ["news", "research"]
+
+# --- Tagging taxonomies -------------------------------------------------
+# Used by tags.py to label each story with (1) which AI security area it
+# falls under and (2) which industry it's about, so the newspaper can show
+# short chips instead of paragraphs. First matching rule wins, so more
+# specific rules are listed before general ones.
+AREA_RULES = [
+    ("Prompt Security", ["prompt injection", "jailbreak", "adversarial prompt", "prompt security"]),
+    ("MCP Security", ["mcp vulnerability", "mcp exploit", "model context protocol", " mcp "]),
+    ("Agent Security", ["agentic ai attack", "agentic ai", "ai agent", "autonomous agent", "agent security"]),
+    ("Model Security", ["model poisoning", "model extraction", "model theft", "model backdoor", "model inversion"]),
+    ("Data & Training Security", ["data poisoning", "training data leak", "rag poisoning", "vector database leak", "ai data leak"]),
+    ("Supply Chain Security", ["ai supply chain", "ai supply-chain"]),
+    ("LLM Security", ["llm attack", "llm vulnerability", "llm jailbreak", "llm security", "chatbot exploit"]),
+    ("Platform Security", ["openai security", "anthropic security", "claude security", "gemini security", "copilot security", "ai platform vulnerability"]),
+    ("AI Governance & Compliance", ["ai regulation", "ai policy", "ai compliance", "ai governance"]),
+]
+DEFAULT_AREA = "AI Security"
+
+INDUSTRY_RULES = [
+    ("BFSI", ["bank", "banking", "financial services", "fintech", "insurer", "insurance", "credit union", "payment processor"]),
+    ("Healthcare", ["hospital", "healthcare", "health system", "patient data", "medical device", "clinic"]),
+    ("EdTech", ["university", "school district", "edtech", "student data", "higher education", "college"]),
+    ("Government & Public Sector", ["government agency", "federal agency", "state agency", "public sector", "municipal", "government"]),
+    ("Retail & E-commerce", ["retailer", "e-commerce", "ecommerce", "online store", "retail chain"]),
+    ("Telecom", ["telecom", "telecommunications", "mobile carrier", "isp"]),
+    ("Energy & Utilities", ["power grid", "energy company", "utility company", "oil and gas"]),
+    ("Manufacturing", ["manufacturer", "manufacturing plant", "industrial control system", "factory"]),
+    ("Media & Entertainment", ["streaming service", "media company", "entertainment company"]),
+    ("Technology", ["cloud provider", "saas company", "tech company", "software vendor", "startup"]),
+]
+DEFAULT_INDUSTRY = "Cross-Industry"

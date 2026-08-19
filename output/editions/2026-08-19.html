@@ -200,6 +200,39 @@
     padding: 2px 7px;
   }
 
+  /* ---------- Area / industry tag chips ----------
+     Compact pills so the AI-security-area and industry labels read at a
+     glance instead of adding another line of prose. */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    border: 1px solid var(--hairline);
+    white-space: nowrap;
+  }
+
+  .tag-area {
+    color: var(--brand);
+    border-color: rgba(94, 124, 255, 0.35);
+    background: rgba(94, 124, 255, 0.1);
+  }
+
+  .tag-industry {
+    color: var(--sev-notable);
+    border-color: rgba(79, 195, 224, 0.35);
+    background: rgba(79, 195, 224, 0.1);
+  }
+
   /* Signal bars — the signature element. Bar count = rank priority,
      not a literal score readout, so it reads clearly at a glance. */
   .signal-bars { display: flex; align-items: flex-end; gap: 2px; height: 14px; }
@@ -359,7 +392,7 @@
     <div class="meta-row">
       <span>EDITION <strong>2026-08-19</strong></span>
       <span>WINDOW <strong>2D</strong></span>
-      <span>GENERATED <strong>2026-08-19 08:27 UTC</strong></span>
+      <span>GENERATED <strong>2026-08-19 11:07 UTC</strong></span>
     </div>
   </header>
 
@@ -389,15 +422,20 @@
           </div>
         </div>
 
-        <h2><a href="https://www.bleepingcomputer.com/news/security/cisa-medusa-ransomware-hit-over-500-critical-infrastructure-orgs/" target="_blank" rel="noopener">CISA: Medusa ransomware hit over 500 critical infrastructure orgs</a></h2>
-
-        <div class="byline">
-          BleepingComputer<span class="dot">&middot;</span>Aug 19, 02:30 UTC
+        <div class="tag-row">
+          <span class="tag tag-area">Prompt Security</span>
+          <span class="tag tag-industry">Cross-Industry</span>
         </div>
 
-        <p class="blurb">The FBI said Tuesday that the Medusa ransomware gang has breached more than 500 critical infrastructure organizations in the United States since June 2021. [...]</p>
+        <h2><a href="https://exploiting.systems/posts/2026-08-08-prompt-injection-in-virustotals-code-insights-api" target="_blank" rel="noopener">Prompt Injection in VirusTotal&#39;s Code Insights API</a></h2>
 
-        <a class="read-more" href="https://www.bleepingcomputer.com/news/security/cisa-medusa-ransomware-hit-over-500-critical-infrastructure-orgs/" target="_blank" rel="noopener">Read full report →</a>
+        <div class="byline">
+          Hacker News<span class="dot">&middot;</span>Aug 18, 11:29 UTC
+        </div>
+
+        <p class="blurb">Prompt Injection in VirusTotal&#39;s Code Insights API</p>
+
+        <a class="read-more" href="https://exploiting.systems/posts/2026-08-08-prompt-injection-in-virustotals-code-insights-api" target="_blank" rel="noopener">Read full report →</a>
       </article>
     
       
@@ -423,15 +461,20 @@
           </div>
         </div>
 
-        <h2><a href="https://thehackernews.com/2026/08/ransom-busters-claims-it-hacked.html" target="_blank" rel="noopener">Ransom Busters Claims It Hacked Ransomware Servers, Asks Victims for Up to $60,000</a></h2>
-
-        <div class="byline">
-          The Hacker News<span class="dot">&middot;</span>Aug 18, 11:28 UTC
+        <div class="tag-row">
+          <span class="tag tag-area">Prompt Security</span>
+          <span class="tag tag-industry">Cross-Industry</span>
         </div>
 
-        <p class="blurb">A ransomware affiliate calling itself Ransom Busters has been spotted proactively sending emails to victim organizations and claims to delete stolen data from ransomware groups&#39; servers in exchange for a fee ranging from $20,000 to $60,000. &#34;In these messages, the third-party offers to help the victim recover from ransomware attack.</p>
+        <h2><a href="https://github.com/vineetpant/customhouse/blob/main/docs/false-positives.md" target="_blank" rel="noopener">Blocking prompt injection deterministically costs 40% false positives</a></h2>
 
-        <a class="read-more" href="https://thehackernews.com/2026/08/ransom-busters-claims-it-hacked.html" target="_blank" rel="noopener">Read full report →</a>
+        <div class="byline">
+          Hacker News<span class="dot">&middot;</span>Aug 18, 06:50 UTC
+        </div>
+
+        <p class="blurb">Blocking prompt injection deterministically costs 40% false positives</p>
+
+        <a class="read-more" href="https://github.com/vineetpant/customhouse/blob/main/docs/false-positives.md" target="_blank" rel="noopener">Read full report →</a>
       </article>
     
       
@@ -455,6 +498,11 @@
               <span class=""></span>
             
           </div>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag tag-area">AI Security</span>
+          <span class="tag tag-industry">Cross-Industry</span>
         </div>
 
         <h2><a href="https://www.darkreading.com/cyberattacks-data-breaches/ransom-busters-ransomware-actor-incident-recovery-service" target="_blank" rel="noopener">&#39;Ransom Busters&#39;: Ransomware Actor Poses as Incident-Recovery Service</a></h2>
@@ -483,7 +531,7 @@
   </div>
 
   <footer>
-    Generated automatically &middot; 2026-08-19 08:27 UTC
+    Generated automatically &middot; 2026-08-19 11:07 UTC
   </footer>
 
 </div>

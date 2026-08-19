@@ -1,27 +1,31 @@
 [
   {
-    "title": "CISA: Medusa ransomware hit over 500 critical infrastructure orgs",
-    "link": "https://www.bleepingcomputer.com/news/security/cisa-medusa-ransomware-hit-over-500-critical-infrastructure-orgs/",
-    "summary": "The FBI said Tuesday that the Medusa ransomware gang has breached more than 500 critical infrastructure organizations in the United States since June 2021. [...]",
-    "source": "BleepingComputer",
-    "source_weight": 1.2,
+    "title": "Prompt Injection in VirusTotal's Code Insights API",
+    "link": "https://exploiting.systems/posts/2026-08-08-prompt-injection-in-virustotals-code-insights-api",
+    "summary": "",
+    "source": "Hacker News",
+    "source_weight": 0.9,
     "category": "news",
-    "published": "2026-08-19T02:30:48+00:00",
-    "score": 9.83,
-    "keyword_score": 6,
-    "blurb": "The FBI said Tuesday that the Medusa ransomware gang has breached more than 500 critical infrastructure organizations in the United States since June 2021. [...]"
+    "published": "2026-08-18T11:29:25+00:00",
+    "score": 5.42,
+    "keyword_score": 3,
+    "blurb": "Prompt Injection in VirusTotal's Code Insights API",
+    "area_tag": "Prompt Security",
+    "industry_tag": "Cross-Industry"
   },
   {
-    "title": "Ransom Busters Claims It Hacked Ransomware Servers, Asks Victims for Up to $60,000",
-    "link": "https://thehackernews.com/2026/08/ransom-busters-claims-it-hacked.html",
-    "summary": "A ransomware affiliate calling itself Ransom Busters has been spotted proactively sending emails to victim organizations and claims to delete stolen data from ransomware groups' servers in exchange for a fee ranging from $20,000 to $60,000.\n\n\"In these messages, the third-party offers to help the victim recover from ransomware attack. This immediately stands out as anomalous,\" GuidePoint Research",
-    "source": "The Hacker News",
-    "source_weight": 1.2,
+    "title": "Blocking prompt injection deterministically costs 40% false positives",
+    "link": "https://github.com/vineetpant/customhouse/blob/main/docs/false-positives.md",
+    "summary": "",
+    "source": "Hacker News",
+    "source_weight": 0.9,
     "category": "news",
-    "published": "2026-08-18T11:28:16+00:00",
-    "score": 8.89,
-    "keyword_score": 6,
-    "blurb": "A ransomware affiliate calling itself Ransom Busters has been spotted proactively sending emails to victim organizations and claims to delete stolen data from ransomware groups' servers in exchange for a fee ranging from $20,000 to $60,000. \"In these messages, the third-party offers to help the victim recover from ransomware attack."
+    "published": "2026-08-18T06:50:55+00:00",
+    "score": 5.13,
+    "keyword_score": 3,
+    "blurb": "Blocking prompt injection deterministically costs 40% false positives",
+    "area_tag": "Prompt Security",
+    "industry_tag": "Cross-Industry"
   },
   {
     "title": "'Ransom Busters': Ransomware Actor Poses as Incident-Recovery Service",
@@ -31,8 +35,10 @@
     "source_weight": 1.1,
     "category": "news",
     "published": "2026-08-18T07:30:00+00:00",
-    "score": 6.54,
-    "keyword_score": 4,
-    "blurb": "A ransomware affiliate appears to be sidling up to victims with offers of aid, masking its true intention of diverting ransom payments."
+    "score": 4.37,
+    "keyword_score": 2,
+    "blurb": "A ransomware affiliate appears to be sidling up to victims with offers of aid, masking its true intention of diverting ransom payments.",
+    "area_tag": "AI Security",
+    "industry_tag": "Cross-Industry"
   }
 ]
