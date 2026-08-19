@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -253,10 +254,73 @@
   }
   .read-more:hover { text-decoration: underline; }
 
+  /* ---------- Connect banner ---------- */
+  .connect-banner {
+    margin-top: 40px;
+    background: var(--bg-panel);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .connect-banner h3 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 0 0 8px;
+  }
+
+  .connect-banner p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin: 0 0 20px;
+  }
+
+  .connect-banner p a {
+    color: var(--brand);
+    text-decoration: none;
+  }
+  .connect-banner p a:hover { text-decoration: underline; }
+
+  .connect-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .connect-buttons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 7px;
+    border: 1px solid var(--hairline);
+    color: var(--text-primary);
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .connect-buttons a:hover {
+    border-color: var(--brand);
+    background: var(--bg-panel-hover);
+  }
+
+  .connect-buttons a.primary {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #0a0c11;
+  }
+  .connect-buttons a.primary:hover { opacity: 0.9; background: var(--brand); }
+
   /* ---------- Footer ---------- */
   footer {
     text-align: center;
-    margin-top: 48px;
+    margin-top: 32px;
     font-family: var(--mono);
     font-size: 0.72rem;
     color: var(--text-faint);
@@ -265,6 +329,8 @@
   @media (max-width: 480px) {
     body { padding: 36px 14px 80px; }
     .story { padding: 18px 16px; }
+    .connect-buttons { flex-direction: column; }
+    .connect-buttons a { justify-content: center; }
   }
 </style>
 </head>
@@ -293,7 +359,7 @@
     <div class="meta-row">
       <span>EDITION <strong>2026-08-19</strong></span>
       <span>WINDOW <strong>2D</strong></span>
-      <span>GENERATED <strong>2026-08-19 03:27 UTC</strong></span>
+      <span>GENERATED <strong>2026-08-19 08:27 UTC</strong></span>
     </div>
   </header>
 
@@ -323,15 +389,15 @@
           </div>
         </div>
 
-        <h2><a href="https://thehackernews.com/2026/08/ransom-busters-claims-it-hacked.html" target="_blank" rel="noopener">Ransom Busters Claims It Hacked Ransomware Servers, Asks Victims for Up to $60,000</a></h2>
+        <h2><a href="https://www.bleepingcomputer.com/news/security/cisa-medusa-ransomware-hit-over-500-critical-infrastructure-orgs/" target="_blank" rel="noopener">CISA: Medusa ransomware hit over 500 critical infrastructure orgs</a></h2>
 
         <div class="byline">
-          The Hacker News<span class="dot">&middot;</span>Aug 18, 16:58 UTC
+          BleepingComputer<span class="dot">&middot;</span>Aug 19, 02:30 UTC
         </div>
 
-        <p class="blurb">A ransomware affiliate calling itself Ransom Busters has been spotted proactively sending emails to victim organizations and claims to delete stolen data from ransomware groups&#39; servers in exchange for a fee ranging from $20,000 to $60,000. &#34;In these messages, the third-party offers to help the victim recover from ransomware attack.</p>
+        <p class="blurb">The FBI said Tuesday that the Medusa ransomware gang has breached more than 500 critical infrastructure organizations in the United States since June 2021. [...]</p>
 
-        <a class="read-more" href="https://thehackernews.com/2026/08/ransom-busters-claims-it-hacked.html" target="_blank" rel="noopener">Read full report →</a>
+        <a class="read-more" href="https://www.bleepingcomputer.com/news/security/cisa-medusa-ransomware-hit-over-500-critical-infrastructure-orgs/" target="_blank" rel="noopener">Read full report →</a>
       </article>
     
       
@@ -357,15 +423,15 @@
           </div>
         </div>
 
-        <h2><a href="https://www.bleepingcomputer.com/news/security/philips-and-ge-investigating-clop-ransomware-data-theft-claims/" target="_blank" rel="noopener">Philips and GE investigating Clop ransomware data theft claims</a></h2>
+        <h2><a href="https://thehackernews.com/2026/08/ransom-busters-claims-it-hacked.html" target="_blank" rel="noopener">Ransom Busters Claims It Hacked Ransomware Servers, Asks Victims for Up to $60,000</a></h2>
 
         <div class="byline">
-          BleepingComputer<span class="dot">&middot;</span>Aug 17, 11:25 UTC
+          The Hacker News<span class="dot">&middot;</span>Aug 18, 11:28 UTC
         </div>
 
-        <p class="blurb">Tech giants General Electric (GE) and Philips have also confirmed they&#39;re investigating claims that the Clop ransomware gang breached their systems and stole data. [...]</p>
+        <p class="blurb">A ransomware affiliate calling itself Ransom Busters has been spotted proactively sending emails to victim organizations and claims to delete stolen data from ransomware groups&#39; servers in exchange for a fee ranging from $20,000 to $60,000. &#34;In these messages, the third-party offers to help the victim recover from ransomware attack.</p>
 
-        <a class="read-more" href="https://www.bleepingcomputer.com/news/security/philips-and-ge-investigating-clop-ransomware-data-theft-claims/" target="_blank" rel="noopener">Read full report →</a>
+        <a class="read-more" href="https://thehackernews.com/2026/08/ransom-busters-claims-it-hacked.html" target="_blank" rel="noopener">Read full report →</a>
       </article>
     
       
@@ -394,7 +460,7 @@
         <h2><a href="https://www.darkreading.com/cyberattacks-data-breaches/ransom-busters-ransomware-actor-incident-recovery-service" target="_blank" rel="noopener">&#39;Ransom Busters&#39;: Ransomware Actor Poses as Incident-Recovery Service</a></h2>
 
         <div class="byline">
-          Dark Reading<span class="dot">&middot;</span>Aug 18, 13:00 UTC
+          Dark Reading<span class="dot">&middot;</span>Aug 18, 07:30 UTC
         </div>
 
         <p class="blurb">A ransomware affiliate appears to be sidling up to victims with offers of aid, masking its true intention of diverting ransom payments.</p>
@@ -404,8 +470,20 @@
     
   </div>
 
+  <div class="connect-banner">
+    <h3>Stay in the loop</h3>
+    <p>
+      Have feedback or a story we missed? Write to
+      <a href="mailto:security@korelex.ai">security@korelex.ai</a>
+    </p>
+    <div class="connect-buttons">
+      <a class="primary" href="https://www.linkedin.com/company/korelex-ai" target="_blank" rel="noopener">Follow us on LinkedIn</a>
+      <a href="https://korelex.ai/" target="_blank" rel="noopener">Visit our website</a>
+    </div>
+  </div>
+
   <footer>
-    Generated automatically &middot; 2026-08-19 03:27 UTC
+    Generated automatically &middot; 2026-08-19 08:27 UTC
   </footer>
 
 </div>

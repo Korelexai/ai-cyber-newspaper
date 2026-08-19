@@ -1,27 +1,27 @@
 [
   {
+    "title": "CISA: Medusa ransomware hit over 500 critical infrastructure orgs",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-medusa-ransomware-hit-over-500-critical-infrastructure-orgs/",
+    "summary": "The FBI said Tuesday that the Medusa ransomware gang has breached more than 500 critical infrastructure organizations in the United States since June 2021. [...]",
+    "source": "BleepingComputer",
+    "source_weight": 1.2,
+    "category": "news",
+    "published": "2026-08-19T02:30:48+00:00",
+    "score": 9.83,
+    "keyword_score": 6,
+    "blurb": "The FBI said Tuesday that the Medusa ransomware gang has breached more than 500 critical infrastructure organizations in the United States since June 2021. [...]"
+  },
+  {
     "title": "Ransom Busters Claims It Hacked Ransomware Servers, Asks Victims for Up to $60,000",
     "link": "https://thehackernews.com/2026/08/ransom-busters-claims-it-hacked.html",
     "summary": "A ransomware affiliate calling itself Ransom Busters has been spotted proactively sending emails to victim organizations and claims to delete stolen data from ransomware groups' servers in exchange for a fee ranging from $20,000 to $60,000.\n\n\"In these messages, the third-party offers to help the victim recover from ransomware attack. This immediately stands out as anomalous,\" GuidePoint Research",
     "source": "The Hacker News",
     "source_weight": 1.2,
     "category": "news",
-    "published": "2026-08-18T16:58:16+00:00",
-    "score": 9.54,
+    "published": "2026-08-18T11:28:16+00:00",
+    "score": 8.89,
     "keyword_score": 6,
     "blurb": "A ransomware affiliate calling itself Ransom Busters has been spotted proactively sending emails to victim organizations and claims to delete stolen data from ransomware groups' servers in exchange for a fee ranging from $20,000 to $60,000. \"In these messages, the third-party offers to help the victim recover from ransomware attack."
-  },
-  {
-    "title": "Philips and GE investigating Clop ransomware data theft claims",
-    "link": "https://www.bleepingcomputer.com/news/security/philips-and-ge-investigating-clop-ransomware-data-theft-claims/",
-    "summary": "Tech giants General Electric (GE) and Philips have also confirmed they're investigating claims that the Clop ransomware gang breached their systems and stole data. [...]",
-    "source": "BleepingComputer",
-    "source_weight": 1.2,
-    "category": "news",
-    "published": "2026-08-17T11:25:02+00:00",
-    "score": 7.7,
-    "keyword_score": 6,
-    "blurb": "Tech giants General Electric (GE) and Philips have also confirmed they're investigating claims that the Clop ransomware gang breached their systems and stole data. [...]"
   },
   {
     "title": "'Ransom Busters': Ransomware Actor Poses as Incident-Recovery Service",
@@ -30,8 +30,8 @@
     "source": "Dark Reading",
     "source_weight": 1.1,
     "category": "news",
-    "published": "2026-08-18T13:00:00+00:00",
-    "score": 7.2,
+    "published": "2026-08-18T07:30:00+00:00",
+    "score": 6.54,
     "keyword_score": 4,
     "blurb": "A ransomware affiliate appears to be sidling up to victims with offers of aid, masking its true intention of diverting ransom payments."
   }
