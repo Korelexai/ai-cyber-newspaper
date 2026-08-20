@@ -7,7 +7,7 @@
 <title>AI Threat Briefing — {{ edition_date }}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   /* ============ DESIGN TOKENS ============
      Edit these to re-theme the whole page.
@@ -29,7 +29,7 @@
     --sev-monitored: #6b7280;
     --mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
     --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --display: 'Space Grotesk', var(--sans);
+    --display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
     --radius: 10px;
   }
 
@@ -64,20 +64,21 @@
   .brand {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-family: var(--mono);
-    font-size: 0.85rem;
-    letter-spacing: 0.14em;
+    gap: 8px;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
     color: var(--text-primary);
-    font-weight: 500;
   }
 
-  /* Signature mark — swap this glyph/shape for your real logo */
+  /* Signature mark — a simple rule + dot, editorial masthead style
+     rather than a gradient "app icon" block */
   .brand-mark {
-    width: 20px;
-    height: 20px;
-    border-radius: 5px;
-    background: linear-gradient(135deg, var(--brand), var(--sev-notable));
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand);
     display: inline-block;
   }
 
@@ -114,8 +115,8 @@
   .masthead h1 {
     font-family: var(--display);
     font-weight: 700;
-    font-size: clamp(2rem, 5vw, 2.65rem);
-    letter-spacing: -0.01em;
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+    letter-spacing: -0.005em;
     margin: 0 0 10px;
   }
 
@@ -250,9 +251,9 @@
 
   .story h2 {
     font-family: var(--display);
-    font-weight: 700;
-    font-size: 1.28rem;
-    line-height: 1.32;
+    font-weight: 600;
+    font-size: 1.18rem;
+    line-height: 1.36;
     margin: 0 0 10px;
   }
 
@@ -286,6 +287,33 @@
     text-decoration: none;
   }
   .read-more:hover { text-decoration: underline; }
+
+  /* ---------- Why it matters callout ---------- */
+  .impact-box {
+    margin: 4px 0 16px;
+    padding: 12px 14px;
+    background: rgba(94, 124, 255, 0.07);
+    border-left: 2px solid var(--brand);
+    border-radius: 0 6px 6px 0;
+  }
+
+  .impact-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brand);
+    margin-bottom: 5px;
+  }
+
+  .impact-text {
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--text-primary);
+  }
 
   /* ---------- Connect banner ---------- */
   .connect-banner {
@@ -350,6 +378,65 @@
   }
   .connect-buttons a.primary:hover { opacity: 0.9; background: var(--brand); }
 
+  /* ---------- Subscribe form ---------- */
+  .subscribe-divider {
+    border: none;
+    border-top: 1px solid var(--hairline);
+    margin: 22px 0;
+  }
+
+  .subscribe-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .subscribe-form input {
+    flex: 1 1 160px;
+    background: var(--bg-base);
+    border: 1px solid var(--hairline);
+    border-radius: 7px;
+    padding: 10px 12px;
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    color: var(--text-primary);
+  }
+
+  .subscribe-form input::placeholder { color: var(--text-faint); }
+
+  .subscribe-form input:focus {
+    outline: none;
+    border-color: var(--brand);
+  }
+
+  .subscribe-form button {
+    flex: 0 0 auto;
+    background: var(--brand);
+    border: 1px solid var(--brand);
+    border-radius: 7px;
+    padding: 10px 20px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: #0a0c11;
+    cursor: pointer;
+  }
+
+  .subscribe-form button:hover { opacity: 0.9; }
+  .subscribe-form button:disabled { opacity: 0.6; cursor: default; }
+
+  .subscribe-status {
+    margin-top: 12px;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    min-height: 1em;
+  }
+  .subscribe-status.success { color: var(--sev-notable); }
+  .subscribe-status.error { color: var(--sev-critical); }
+
   /* ---------- Footer ---------- */
   footer {
     text-align: center;
@@ -364,6 +451,7 @@
     .story { padding: 18px 16px; }
     .connect-buttons { flex-direction: column; }
     .connect-buttons a { justify-content: center; }
+    .subscribe-form { flex-direction: column; }
   }
 </style>
 </head>
@@ -431,6 +519,13 @@
 
         <p class="blurb">{{ story.blurb }}</p>
 
+        {% if story.why_it_matters %}
+        <div class="impact-box">
+          <div class="impact-label">Why it matters</div>
+          <div class="impact-text">{{ story.why_it_matters }}</div>
+        </div>
+        {% endif %}
+
         <a class="read-more" href="{{ story.link }}" target="_blank" rel="noopener">Read full report →</a>
       </article>
     {% endfor %}
@@ -446,6 +541,17 @@
       <a class="primary" href="https://www.linkedin.com/company/korelex-ai" target="_blank" rel="noopener">Follow us on LinkedIn</a>
       <a href="https://korelex.ai/" target="_blank" rel="noopener">Visit our website</a>
     </div>
+
+    <hr class="subscribe-divider">
+
+    <h3>Get this in your inbox</h3>
+    <p>Free daily briefing, delivered every morning.</p>
+    <form class="subscribe-form" id="subscribe-form">
+      <input type="text" id="subscribe-name" placeholder="Name (optional)" autocomplete="name">
+      <input type="email" id="subscribe-email" placeholder="you@company.com" autocomplete="email" required>
+      <button type="submit" id="subscribe-btn">Subscribe</button>
+    </form>
+    <div class="subscribe-status" id="subscribe-status"></div>
   </div>
 
   <footer>
@@ -453,5 +559,49 @@
   </footer>
 
 </div>
+
+<script>
+  (function () {
+    var form = document.getElementById('subscribe-form');
+    var btn = document.getElementById('subscribe-btn');
+    var status = document.getElementById('subscribe-status');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('subscribe-name').value.trim();
+      var email = document.getElementById('subscribe-email').value.trim();
+
+      btn.disabled = true;
+      btn.textContent = 'Subscribing…';
+      status.textContent = '';
+      status.className = 'subscribe-status';
+
+      fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: name, email: email })
+      })
+        .then(function (res) { return res.json().then(function (data) { return { ok: res.ok, data: data }; }); })
+        .then(function (result) {
+          if (result.ok) {
+            status.textContent = "You're subscribed — check your inbox tomorrow morning.";
+            status.className = 'subscribe-status success';
+            form.reset();
+          } else {
+            status.textContent = result.data.error || 'Something went wrong. Please try again.';
+            status.className = 'subscribe-status error';
+          }
+        })
+        .catch(function () {
+          status.textContent = 'Something went wrong. Please try again.';
+          status.className = 'subscribe-status error';
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = 'Subscribe';
+        });
+    });
+  })();
+</script>
 </body>
 </html>
