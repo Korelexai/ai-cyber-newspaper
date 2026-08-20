@@ -1,0 +1,44 @@
+[
+  {
+    "title": "US warns of AI-powered attacks on Siemens PLCs in critical infrastructure",
+    "link": "https://www.bleepingcomputer.com/news/security/us-warns-of-ai-powered-attacks-on-siemens-plcs-in-critical-infrastructure/",
+    "summary": "U.S. cybersecurity agencies warn that threat actors are using AI-generated scripts to exploit Siemens S7 Series programmable logic controllers (PLCs) in U.S. critical infrastructure. [...]",
+    "source": "BleepingComputer",
+    "source_weight": 1.2,
+    "category": "news",
+    "published": "2026-08-19T17:50:01+00:00",
+    "score": 5.6,
+    "keyword_score": 2,
+    "blurb": "U.S. cybersecurity agencies warn that threat actors are using AI-generated scripts to exploit Siemens S7 Series programmable logic controllers (PLCs) in U.S.",
+    "area_tag": "AI Security",
+    "industry_tag": "Cross-Industry"
+  },
+  {
+    "title": "Prompt Injection in VirusTotal's Code Insights API",
+    "link": "https://exploiting.systems/posts/2026-08-08-prompt-injection-in-virustotals-code-insights-api",
+    "summary": "",
+    "source": "Hacker News",
+    "source_weight": 0.9,
+    "category": "news",
+    "published": "2026-08-18T11:29:25+00:00",
+    "score": 4.4,
+    "keyword_score": 3,
+    "blurb": "Prompt Injection in VirusTotal's Code Insights API",
+    "area_tag": "Prompt Security",
+    "industry_tag": "Cross-Industry"
+  },
+  {
+    "title": "Blocking prompt injection deterministically costs 40% false positives",
+    "link": "https://github.com/vineetpant/customhouse/blob/main/docs/false-positives.md",
+    "summary": "",
+    "source": "Hacker News",
+    "source_weight": 0.9,
+    "category": "news",
+    "published": "2026-08-18T06:50:55+00:00",
+    "score": 4.11,
+    "keyword_score": 3,
+    "blurb": "Blocking prompt injection deterministically costs 40% false positives",
+    "area_tag": "Prompt Security",
+    "industry_tag": "Cross-Industry"
+  }
+]
