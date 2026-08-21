@@ -40,7 +40,8 @@ import urllib.error
 
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
 SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
-EMAIL_SENDER = os.environ.get("EMAIL_SENDER", "")
+EMAIL_LOGIN = os.environ.get("EMAIL_LOGIN", "")          # real Gmail account, used to authenticate
+EMAIL_SENDER = os.environ.get("EMAIL_SENDER", "")        # "From" address shown to recipients (can be an alias)
 EMAIL_APP_PASSWORD = os.environ.get("EMAIL_APP_PASSWORD", "")
 GOOGLE_SHEET_WEBHOOK_URL = os.environ.get("GOOGLE_SHEET_WEBHOOK_URL", "")
 
@@ -84,9 +85,8 @@ def _append_to_google_sheet(name: str, email: str) -> None:
     )
     urllib.request.urlopen(req, timeout=8)
 
-
 def _send_welcome_email(name: str, email: str) -> None:
-    if not EMAIL_SENDER or not EMAIL_APP_PASSWORD:
+    if not EMAIL_LOGIN or not EMAIL_SENDER or not EMAIL_APP_PASSWORD:
         return  # not configured yet — skip silently, subscription still succeeds
 
     greeting = f"Hi {name}," if name else "Hi,"
@@ -107,9 +107,10 @@ def _send_welcome_email(name: str, email: str) -> None:
     msg["To"] = email
 
     context = ssl.create_default_context()
+
     with smtplib.SMTP("smtp.gmail.com", 587, timeout=10) as server:
         server.starttls(context=context)
-        server.login(EMAIL_SENDER, EMAIL_APP_PASSWORD)
+        server.login(EMAIL_LOGIN, EMAIL_APP_PASSWORD)
         server.send_message(msg)
 
 
@@ -157,14 +158,16 @@ class handler(BaseHTTPRequestHandler):
         # Welcome email and the Google Sheet log are both best-effort —
         # a failure in either should never make the subscription itself
         # look like it failed to the person filling out the form.
+        
         try:
             _send_welcome_email(name, email)
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"[subscribe] welcome email failed: {e}")
 
         try:
             _append_to_google_sheet(name, email)
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"[subscribe] sheet append failed: {e}")
+
 
         return self._respond(200, {"success": True})

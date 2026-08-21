@@ -31,7 +31,8 @@ import requests
 
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
 SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
-EMAIL_SENDER = os.environ.get("EMAIL_SENDER", "")
+EMAIL_LOGIN = os.environ.get("EMAIL_LOGIN", "")          # real Gmail account, used to authenticate
+EMAIL_SENDER = os.environ.get("EMAIL_SENDER", "")        # "From" address shown to recipients (can be an alias)
 EMAIL_APP_PASSWORD = os.environ.get("EMAIL_APP_PASSWORD", "")
 
 SITE_URL = "https://dailybriefing.korelex.ai"
@@ -111,12 +112,11 @@ def _build_html(top_stories: List[Dict], edition_date: str) -> str:
 </body>
 </html>"""
 
-
 def send_daily_email(top_stories: List[Dict], edition_date: str) -> None:
-    if not EMAIL_SENDER or not EMAIL_APP_PASSWORD:
+    if not EMAIL_LOGIN or not EMAIL_SENDER or not EMAIL_APP_PASSWORD:
         print("[send_newsletter] Email sender not configured — skipping.")
         return
-
+    
     subscribers = fetch_subscribers()
     if not subscribers:
         print("[send_newsletter] No subscribers to email.")
@@ -135,9 +135,10 @@ def send_daily_email(top_stories: List[Dict], edition_date: str) -> None:
     recipient_emails = [s["email"] for s in subscribers if s.get("email")]
 
     context = ssl.create_default_context()
+    
     with smtplib.SMTP("smtp.gmail.com", 587, timeout=20) as server:
         server.starttls(context=context)
-        server.login(EMAIL_SENDER, EMAIL_APP_PASSWORD)
+        server.login(EMAIL_LOGIN, EMAIL_APP_PASSWORD)
         server.sendmail(EMAIL_SENDER, recipient_emails, msg.as_string())
 
     print(f"[send_newsletter] Sent to {len(recipient_emails)} subscriber(s).")
