@@ -1,0 +1,47 @@
+[
+  {
+    "title": "CISA warns of hackers exploiting critical MLflow vulnerability",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-critical-mlflow-vulnerability/",
+    "summary": "The Cybersecurity and Infrastructure Security Agency (CISA) warned federal agencies that threat actors are now exploiting a critical vulnerability in the MLflow open-source AI engineering platform. [...]",
+    "source": "BleepingComputer",
+    "source_weight": 1.2,
+    "category": "news",
+    "published": "2026-08-20T11:06:14+00:00",
+    "score": 6.08,
+    "keyword_score": 3,
+    "area_tag": "AI Security",
+    "industry_tag": "Cross-Industry",
+    "blurb": "The Cybersecurity and Infrastructure Security Agency (CISA) warned federal agencies that threat actors are now exploiting a critical vulnerability in the MLflow open-source AI engineering platform. [...]",
+    "why_it_matters": "This falls under ai security \u2014 worth a quick check against your own AI systems for similar exposure."
+  },
+  {
+    "title": "New Cryptographic Context Injection Attack Could Let Web Pages Steal Grok Chat Data",
+    "link": "https://thehackernews.com/2026/08/new-cryptographic-context-injection.html",
+    "summary": "Adversa AI has disclosed an attack technique that it says can cause xAI's Grok chatbot to send a user's name, approximate location, subscription tier, and the prompts from the ongoing conversation to an attacker-controlled server after the user asks it to summarize an ordinary web page.\n\nThe AI security company, which has codenamed the technique \"Cryptographic Context Injection,\" said the",
+    "source": "The Hacker News",
+    "source_weight": 1.2,
+    "category": "news",
+    "published": "2026-08-20T14:36:27+00:00",
+    "score": 5.3,
+    "keyword_score": 2,
+    "area_tag": "AI Security",
+    "industry_tag": "Cross-Industry",
+    "blurb": "Adversa AI has disclosed an attack technique that it says can cause xAI's Grok chatbot to send a user's name, approximate location, subscription tier, and the prompts from the ongoing conversation to an attacker-controlled server after the user asks it to summarize an ordinary web page. The AI security company, which has codenamed the technique \"Cryptographic Context Injection,\" said the",
+    "why_it_matters": "This falls under ai security \u2014 worth a quick check against your own AI systems for similar exposure."
+  },
+  {
+    "title": "US warns of AI-powered attacks on Siemens PLCs in critical infrastructure",
+    "link": "https://www.bleepingcomputer.com/news/security/us-warns-of-ai-powered-attacks-on-siemens-plcs-in-critical-infrastructure/",
+    "summary": "U.S. cybersecurity agencies warn that threat actors are using AI-generated scripts to exploit Siemens S7 Series programmable logic controllers (PLCs) in U.S. critical infrastructure. [...]",
+    "source": "BleepingComputer",
+    "source_weight": 1.2,
+    "category": "news",
+    "published": "2026-08-19T17:50:01+00:00",
+    "score": 4.0,
+    "keyword_score": 2,
+    "area_tag": "AI Security",
+    "industry_tag": "Cross-Industry",
+    "blurb": "U.S. cybersecurity agencies warn that threat actors are using AI-generated scripts to exploit Siemens S7 Series programmable logic controllers (PLCs) in U.S.",
+    "why_it_matters": "This falls under ai security \u2014 worth a quick check against your own AI systems for similar exposure."
+  }
+]

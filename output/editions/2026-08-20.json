@@ -7,26 +7,11 @@
     "source_weight": 1.2,
     "category": "news",
     "published": "2026-08-20T11:06:14+00:00",
-    "score": 7.03,
+    "score": 6.94,
     "keyword_score": 3,
     "area_tag": "AI Security",
     "industry_tag": "Cross-Industry",
     "blurb": "The Cybersecurity and Infrastructure Security Agency (CISA) warned federal agencies that threat actors are now exploiting a critical vulnerability in the MLflow open-source AI engineering platform. [...]",
-    "why_it_matters": "This falls under ai security \u2014 worth a quick check against your own AI systems for similar exposure."
-  },
-  {
-    "title": "Hackers Using AI to Target Siemens PLCs in Critical US Sectors",
-    "link": "https://www.securityweek.com/hackers-using-ai-to-target-siemens-plcs-in-critical-us-sectors/",
-    "summary": "<p>A cybersecurity advisory with technical details and recommendations has been written by the NSA, CISA and other agencies.</p>\n<p>The post <a href=\"https://www.securityweek.com/hackers-using-ai-to-target-siemens-plcs-in-critical-us-sectors/\">Hackers Using AI to Target Siemens PLCs in Critical US Sectors</a> appeared first on <a href=\"https://www.securityweek.com\">SecurityWeek</a>.</p>",
-    "source": "SecurityWeek",
-    "source_weight": 1.1,
-    "category": "news",
-    "published": "2026-08-20T07:02:02+00:00",
-    "score": 5.68,
-    "keyword_score": 2,
-    "area_tag": "AI Security",
-    "industry_tag": "Cross-Industry",
-    "blurb": "A cybersecurity advisory with technical details and recommendations has been written by the NSA, CISA and other agencies. The post Hackers Using AI to Target Siemens PLCs in Critical US Sectors appeared first on SecurityWeek .",
     "why_it_matters": "This falls under ai security \u2014 worth a quick check against your own AI systems for similar exposure."
   },
   {
@@ -37,11 +22,26 @@
     "source_weight": 1.2,
     "category": "news",
     "published": "2026-08-19T17:50:01+00:00",
-    "score": 4.95,
+    "score": 4.86,
     "keyword_score": 2,
     "area_tag": "AI Security",
     "industry_tag": "Cross-Industry",
     "blurb": "U.S. cybersecurity agencies warn that threat actors are using AI-generated scripts to exploit Siemens S7 Series programmable logic controllers (PLCs) in U.S.",
     "why_it_matters": "This falls under ai security \u2014 worth a quick check against your own AI systems for similar exposure."
+  },
+  {
+    "title": "`From Prompt to Perturbation': An Adaptive Framework for Voice-Based Jailbreaks on Audio LLMs",
+    "link": "https://arxiv.org/abs/2502.00735",
+    "summary": "arXiv:2502.00735v4 Announce Type: replace \nAbstract: As large language models (LLMs) are increasingly integrated into audio-based applications, growing concerns have emerged regarding their vulnerability to audio-based adversarial attacks. These systems typically follow two architectural paradigms: cascaded pipelines, where automatic speech recognition converts audio inputs into text before LLM processing, and end-to-end large audio-language models (LALMs), which directly interpret raw audio signals. Beyond architectural differences, cascaded pipelines are primarily vulnerable to text-level jailbreak strategies delivered through speech, whereas end-to-end LALMs introduce additional acoustic-semantic attack vectors. However, existing studies often focus on a single paradigm and provide limited coverage of the broader audio attack space. To bridge this gap, we propose an adaptive jailbreak attack framework for systematic evaluation of both cascaded pipelines and LALMs under a unified experimental setting. At its core, the framework uses a feedback-guided mutation engine to automatically generate and refine jailbreak candidates across both textual prompts and audio perturbations, thereby expanding attack diversity and coverage. Experiments on six representative audio-based systems demonstrate that both paradigms remain substantially vulnerable to audio jailbreak attacks. Compared with state-of-the-art methods, our framework achieves consistently higher attack success rates across diverse audio-based LLM systems.",
+    "source": "arXiv cs.CR (Cryptography & Security)",
+    "source_weight": 0.5,
+    "category": "research",
+    "published": "2026-08-20T04:00:00+00:00",
+    "score": 9.79,
+    "keyword_score": 7,
+    "area_tag": "Prompt Security",
+    "industry_tag": "Cross-Industry",
+    "blurb": "arXiv:2502.00735v4 Announce Type: replace Abstract: As large language models (LLMs) are increasingly integrated into audio-based applications, growing concerns have emerged regarding their vulnerability to audio-based adversarial attacks. These systems typically follow two architectural paradigms: cascaded pipelines, where automatic speech recognition converts audio inputs into text before LLM processing, and end-to-end large audio-language models (LALMs), which directly interpret raw audio signals.",
+    "why_it_matters": "This falls under prompt security \u2014 worth a quick check against your own AI systems for similar exposure."
   }
 ]
