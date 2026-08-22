@@ -1,0 +1,47 @@
+[
+  {
+    "title": "OpenAI Adds Controls That Should've Been There Already",
+    "link": "https://www.darkreading.com/application-security/openai-adds-controls-already",
+    "summary": "The new AI security controls follow the Hugging Face incident last month, though many of these additions perhaps should have been in place prior to the frontier models escaping.",
+    "source": "Dark Reading",
+    "source_weight": 1.1,
+    "category": "news",
+    "published": "2026-08-21T13:30:00+00:00",
+    "score": 6.23,
+    "keyword_score": 3,
+    "area_tag": "AI Security",
+    "industry_tag": "Cross-Industry",
+    "blurb": "The new AI security controls follow the Hugging Face incident last month, though many of these additions perhaps should have been in place prior to the frontier models escaping.",
+    "why_it_matters": "This falls under ai security \u2014 worth a quick check against your own AI systems for similar exposure."
+  },
+  {
+    "title": "CISA warns of hackers exploiting critical MLflow vulnerability",
+    "link": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-exploiting-critical-mlflow-vulnerability/",
+    "summary": "The Cybersecurity and Infrastructure Security Agency (CISA) warned federal agencies that threat actors are now exploiting a critical vulnerability in the MLflow open-source AI engineering platform. [...]",
+    "source": "BleepingComputer",
+    "source_weight": 1.2,
+    "category": "news",
+    "published": "2026-08-20T11:06:14+00:00",
+    "score": 4.68,
+    "keyword_score": 3,
+    "area_tag": "AI Security",
+    "industry_tag": "Cross-Industry",
+    "blurb": "The Cybersecurity and Infrastructure Security Agency (CISA) warned federal agencies that threat actors are now exploiting a critical vulnerability in the MLflow open-source AI engineering platform. [...]",
+    "why_it_matters": "This falls under ai security \u2014 worth a quick check against your own AI systems for similar exposure."
+  },
+  {
+    "title": "New Cryptographic Context Injection Attack Could Let Web Pages Steal Grok Chat Data",
+    "link": "https://thehackernews.com/2026/08/new-cryptographic-context-injection.html",
+    "summary": "Adversa AI has disclosed an attack technique that it says can cause xAI's Grok chatbot to send a user's name, approximate location, subscription tier, and the prompts from the ongoing conversation to an attacker-controlled server after the user asks it to summarize an ordinary web page.\n\nThe AI security company, which has codenamed the technique \"Cryptographic Context Injection,\" said the",
+    "source": "The Hacker News",
+    "source_weight": 1.2,
+    "category": "news",
+    "published": "2026-08-20T14:36:27+00:00",
+    "score": 3.9,
+    "keyword_score": 2,
+    "area_tag": "AI Security",
+    "industry_tag": "Cross-Industry",
+    "blurb": "Adversa AI has disclosed an attack technique that it says can cause xAI's Grok chatbot to send a user's name, approximate location, subscription tier, and the prompts from the ongoing conversation to an attacker-controlled server after the user asks it to summarize an ordinary web page. The AI security company, which has codenamed the technique \"Cryptographic Context Injection,\" said the",
+    "why_it_matters": "This falls under ai security \u2014 worth a quick check against your own AI systems for similar exposure."
+  }
+]
